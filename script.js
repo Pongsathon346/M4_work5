@@ -43,21 +43,27 @@ document.getElementById('ok').addEventListener('click',function(e){
 
 
 var boderTick=5
-document.getElementById('cancel').style.border = `${boderTick}px solid white`
-
-var cancelElement = document.getElementById('cancel')
-cancelElement.addEventListener('mousemove',function(e){
-    cancelElement.innerHTML = `
-    <div class = "container-col">
-        <div class="flex-item">
-            no1
-        </div>
-        <div class="flex-item">
-            no2
-        </div>
-    `
+var cancelElement = document.getElementById('ok')
+cancelElement.addEventListener('click',function(e){
+    document.getElementById('cancel').style.margin = `${boderTick}px`
+    document.getElementById('ok').style.margin = `${boderTick}px`
+    boderTick+=15
 })
-cancelElement.addEventListener('mouseleave',function(e)
+var count = 0;
+var noElement = document.getElementById('no')
+noElement.addEventListener("dblclick", function (e)
 {
-    cancelElement.innerHTML = `cancel`
+    if (count == 0) {
+    cancelElement.innerHTML = `oheee `
+    count++
+} else if (count == 1) {
+    cancelElement.innerHTML = `head`
+    count++
+} else if (count == 2){
+    cancelElement.innerHTML = `ache`
+    count++
+}else{
+    cancelElement.innerHTML = `ok`
+    count=0;
+    }
 }) 
